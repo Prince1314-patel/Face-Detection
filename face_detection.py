@@ -16,6 +16,13 @@ def detect_faces(image):
         draw.rectangle([x, y, x+w, y+h], outline="red", width=3)
     return pil_image
 
+from deepface import DeepFace
+
+def detect_emotions(image):
+    result = DeepFace.analyze(image, actions=['emotion'])
+    return result
+
+
 
 # Streamlit app
 st.title("Face Detection App")
